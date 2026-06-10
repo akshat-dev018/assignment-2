@@ -121,18 +121,29 @@
 // button.removeAttribute("disabled");
 
 
+// document.querySelector("div").removeChild(elemNode)
+
+// let ul = document.querySelector('ul');
+// let li = document.createElement("li");
+// li.textContent = "hello";
+// ul.appendChild("li");
 
 
 
+// let img = document.createElement("img");
+// img.setAttribute("src","www.placeholder.png")
+// let div = document.querySelector("div");
+// div.prepend(img);
+
+// let ul = document.querySelector("ul");
+// let li = document.querySelector('li');
+// ul.removeChild("li");
 
 
-
-
-
-
-
-
-
+// let li = document.querySelectorAll("ul li:nth-child(2n)")
+// li.forEach(function(elem){
+//     elem.classList.add("highlight");
+// });
 
 
 
