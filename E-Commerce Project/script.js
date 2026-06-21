@@ -2,7 +2,8 @@ const createBtn = document.querySelector("#create");
 const formDiv = document.querySelector(".form");
 const closeBtn = document.querySelector("#close");
 const form = document.querySelector("form");
-const productsDiv = document.querySelector(".products")
+const productsDiv = document.querySelector(".products");
+const themeBtn = document.querySelector("#themeToggle");
 
 
 const productsArr = [];
@@ -113,3 +114,23 @@ const deleteProduct = (index)=>{
     ui();
 }
 
+const savedTheme = localStorage.getItem("theme");
+
+if(savedTheme === "dark"){
+    document.body.classList.add("dark");
+    themeBtn.textContent = "☀️";
+}
+themeBtn.addEventListener("click",()=>{
+
+    document.body.classList.toggle("dark");
+
+    if(document.body.classList.contains("dark")){
+        themeBtn.textContent = "☀️";
+        localStorage.setItem("theme","dark");
+    }
+    else{
+        themeBtn.textContent = "🌙";
+        localStorage.setItem("theme","light");
+    }
+
+});
