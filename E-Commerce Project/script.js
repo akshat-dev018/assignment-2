@@ -6,9 +6,12 @@ const productsDiv = document.querySelector(".products");
 const themeBtn = document.querySelector("#themeToggle");
 
 
-const productsArr = [];
+
+const productsArr = JSON.parse(localStorage.getItem("products")) || [];
+
 
 let updateIndex = null;
+
 
 let ui = ()=>{
     productsDiv.innerHTML = "";
@@ -34,7 +37,7 @@ let ui = ()=>{
     })
 }
 
-
+ui();
 
 
 createBtn.addEventListener("click",()=>{
@@ -72,9 +75,11 @@ form.addEventListener("submit" , (event)=>{
     if(updateIndex !== null){
         productsArr[updateIndex] = obj;
         updateIndex = null;
+    localStorage.setItem("products" , JSON.stringify(productsArr));
     }
     else{
     productsArr.push(obj);
+    localStorage.setItem("products" , JSON.stringify(productsArr));
     }
 
     ui();
@@ -111,6 +116,7 @@ const updateProduct = (name)=>{
 
 const deleteProduct = (index)=>{
     productsArr.splice(index,1);
+    localStorage.setItem("products" , JSON.stringify(productsArr));
     ui();
 }
 
@@ -136,3 +142,51 @@ if(savedTheme === "dark"){
     document.body.classList.add("dark");
     themeBtn.textContent = "☀️";
 }
+
+// Local Storage
+
+// let data = [
+//     {
+//     name : "Akshat",
+//     age : 18,
+//     address : "GK-2",
+//     pincode : 110019
+// },
+//   {
+//     name : "Shivang",
+//     age : 18,
+//     address : "GK-3",
+//     pincode : 110019
+// },
+//   {
+//     name : "Agastya",
+//     age : 18,
+//     address : "GK-4",
+//     pincode : 110019
+// }
+// ]
+
+// // updating data
+// // let newdata = ['polo'];
+
+
+// localStorage.setItem("fam-people" , JSON.stringify(data));
+// // localStorage.setItem("fam-people" , JSON.stringify(newdata));
+
+// const lsd = localStorage.getItem("fam-people");
+
+// let value = JSON.parse(lsd);
+
+
+// console.log(value)
+
+// // removing data
+// // localStorage.removeItem("fam-people");
+
+
+
+
+
+
+
+
